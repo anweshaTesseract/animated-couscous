@@ -77,6 +77,8 @@ else
 }
 }
 /*
+P.S. This is code for the Tinkercad project. Since I learnt a bit more about millis-about how to use it, and I had tried to add a few features to the original project, so I 
+pasted it here.
 
 int b=5,r=9,g=0,bl=6,but=3;
 unsigned long pt=0;
