@@ -76,3 +76,101 @@ else
   delay(50);
 }
 }
+/*
+
+int b=5,r=9,g=0,bl=6,but=3;
+unsigned long pt=0;
+void setup()
+{
+ pinMode(b,OUTPUT);//Buzzer
+  pinMode(r,OUTPUT);//Red led
+  pinMode(bl,OUTPUT);//Blue led
+  pinMode(g,OUTPUT);//Green led
+    pinMode(but,INPUT_PULLUP);//button
+  Serial.begin(9600);
+  
+} bool pst=LOW,cst;
+  unsigned long cm=0;
+void loop()
+{
+  cst=!digitalRead(but);
+  unsigned long t=0;
+  if(cst==pst)
+  t=millis()-pt;
+  Serial.print(cst);
+  Serial.print("    ");
+  Serial.print(t);
+  Serial.print("     ");
+  Serial.println(analogRead(A0));
+  
+  if(pst==0 && cst==1)
+  {digitalWrite(r,LOW);
+   if(analogRead(A0)<=0.3*1022){
+     analogWrite(bl,0.3*255);}
+     
+   else if(analogRead(A0)<=0.5*1022 && analogRead(A0)>0.3*1022)
+   {analogWrite(bl,0.5*255);
+   delay(50);
+     analogWrite(b,0.5*255);}
+   else
+   {
+     analogWrite(bl,255);
+   delay(50);
+     analogWrite(b,255);
+   }
+   pst=HIGH;
+   pt=millis();
+   cm=millis();
+  }
+  else if(pst==1 && cst==1)
+  {
+    if(t<5000){
+      digitalWrite(r,LOW);
+    if(analogRead(A0)<=0.3*1022){
+    analogWrite(bl,0.3*255);
+  if(millis()-cm>=200){
+       if(digitalRead(b)==0)
+       analogWrite(b,0.3*255);
+       else
+         digitalWrite(b,LOW);
+       cm=millis();}}
+   else if(analogRead(A0)<=0.5*1022 && analogRead(A0)>0.3*1022)
+   {analogWrite(bl,0.5*255);
+   delay(50);
+     analogWrite(b,0.5*255);}
+   else
+   {
+     analogWrite(bl,255);
+   delay(50);
+     analogWrite(b,255);
+   }}
+    
+    else
+    {digitalWrite(bl,LOW);
+      if(analogRead(A0)<=0.3*1022){
+    analogWrite(r,0.3*255);
+   delay(50);
+     analogWrite(b,0.3*255);}
+   else if(analogRead(A0)<=0.5*1022 && analogRead(A0)>0.3*1022)
+   {analogWrite(r,0.5*255);
+   delay(50);
+     analogWrite(b,0.5*255);}
+   else
+   {
+     analogWrite(r,255);
+   delay(50);
+     analogWrite(b,255);
+   }}
+    
+      pst=HIGH;
+  }
+  else if(pst==HIGH && cst==LOW)
+  {
+    digitalWrite(r,LOW);
+    digitalWrite(bl,LOW);
+    digitalWrite(b,LOW);
+    pst=LOW;
+    pt=millis();
+  }
+}
+*/
